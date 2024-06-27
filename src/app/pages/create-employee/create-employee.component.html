@@ -1,0 +1,92 @@
+<section class="create--container">
+  <form
+    class="sub--container"
+    [formGroup]="createForm"
+    (ngSubmit)="onAddEmployee()"
+  >
+    <div class="emp-details">
+      <label for="name">Employee Name</label>
+      <input
+        class="input-container"
+        name="name"
+        type="text"
+        formControlName="name"
+        [ngClass]="{ error: isSubmitted && nameControl.hasError('required') }"
+      />
+      <span
+        class="error"
+        *ngIf="isSubmitted && nameControl.hasError('required')"
+        >Name required</span
+      >
+    </div>
+
+    <div class="emp-details">
+      <label for="phone">Contact No</label>
+      <input
+        class="input-container"
+        name="phone"
+        type="text"
+        formControlName="phone"
+        [ngClass]="{
+          error:
+            isSubmitted &&
+            (phoneControl.hasError('required') ||
+              phoneControl.hasError('pattern'))
+        }"
+      />
+      <span
+        class="error"
+        *ngIf="
+          isSubmitted &&
+          (phoneControl.hasError('required') ||
+            phoneControl.hasError('pattern'))
+        "
+        >Phone required</span
+      >
+    </div>
+
+    <div class="emp-details">
+      <label for="email">Email</label>
+      <input
+        class="input-container"
+        type="text"
+        formControlName="email"
+        [ngClass]="{
+          error:
+            isSubmitted &&
+            (emailControl.hasError('required') ||
+              emailControl.hasError('email'))
+        }"
+      />
+      <span
+        class="error"
+        *ngIf="
+          isSubmitted &&
+          (emailControl.hasError('required') || emailControl.hasError('email'))
+        "
+        >email required</span
+      >
+    </div>
+
+    <div class="emp-details">
+      <label for="address">Address</label>
+      <textarea
+        class="input-container"
+        name="address"
+        formControlName="address"
+        [ngClass]="{
+          error: isSubmitted && addressControl.hasError('required')
+        }"
+      ></textarea>
+      <span
+        class="error"
+        *ngIf="isSubmitted && addressControl.hasError('required')"
+        >Address required</span
+      >
+    </div>
+    <div class="button--container">
+      <button type="button" class="cancel" (click)="onCancel()">cancel</button>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</section>

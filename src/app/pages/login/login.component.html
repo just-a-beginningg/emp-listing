@@ -1,0 +1,30 @@
+<section class="login--container">
+  <form [formGroup]="loginForm" class="sub--container" (ngSubmit)="onSubmit()">
+    <label for="username">Username</label>
+    <input
+      id="usernmae"
+      type="text"
+      name="username"
+      formControlName="username"
+      placeholder="Username"
+    />
+    <label for="password">Password</label>
+
+    <div class="password-fields">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Password"
+        formControlName="password"
+        name="password"
+        id="password"
+      />
+      <div
+        [class]="showPassword ? 'icon rk-show active' : 'icon rk-show '"
+        (click)="onTogglePasswordVisibility()"
+      ></div>
+    </div>
+    <div class="button--container">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</section>

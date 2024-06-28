@@ -29,6 +29,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   onCancel() {
     this.createForm.reset();
+    this.isSubmitted = false
   }
 
   onAddEmployee() {

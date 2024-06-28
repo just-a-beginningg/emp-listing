@@ -1,3 +1,13 @@
 <section class="footer--container">
-  <div class="sub--footer"></div>
+  <div class="sub--footer">
+    <button [disabled]="page == 1" (click)="onClickPrev()">Prev</button>
+    <div>
+      <p>{{ page }}/{{ totalPages }}{{ " " }}</p>
+      <p>-</p>
+      <p>{{ list.length }}/{{ totalLength }}</p>
+    </div>
+    <button [disabled]="page == totalPages" (click)="onClickNext()">
+      Next
+    </button>
+  </div>
 </section>

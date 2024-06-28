@@ -11,6 +11,7 @@
         class="input-container"
         name="name"
         type="text"
+        placeholder="eg:John Doe"
         formControlName="name"
         [ngClass]="{ error: isSubmitted && nameControl.hasError('required') }"
       />
@@ -28,6 +29,7 @@
         name="phone"
         type="text"
         formControlName="phone"
+        placeholder="10 digit number"
         [ngClass]="{
           error:
             isSubmitted &&
@@ -52,6 +54,7 @@
         class="input-container"
         type="text"
         formControlName="email"
+        placeholder="eg:johndoe@gmail.com"
         [ngClass]="{
           error:
             isSubmitted &&
@@ -75,6 +78,7 @@
         class="input-container"
         name="address"
         formControlName="address"
+        placeholder="address"
         [ngClass]="{
           error: isSubmitted && addressControl.hasError('required')
         }"

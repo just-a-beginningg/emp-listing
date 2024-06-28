@@ -1,1 +1,17 @@
-<p>details works!</p>
+<app-navbar></app-navbar>
+<section class="details--container">
+  <div class="sub--container">
+    <div class="details">
+      <div>
+        <button routerLink="/list">
+          <img src="../../../assets/white-left-arrow.svg" alt="" />
+        </button>
+      </div>
+      <h2>{{ employee?.name }}</h2>
+    </div>
+    <div class="sub-details">
+      <h2>{{ employee?.phone }}</h2>
+      <h2>{{ employee?.email }}</h2>
+    </div>
+  </div>
+</section>

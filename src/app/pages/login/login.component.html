@@ -7,6 +7,9 @@
       name="username"
       formControlName="username"
       placeholder="Username"
+      [ngClass]="{
+        errors: isSubmitted && errorInUsername
+      }"
     />
     <label for="password">Password</label>
 
@@ -17,14 +20,41 @@
         formControlName="password"
         name="password"
         id="password"
+        [ngClass]="{
+          errors: isSubmitted && errorInPassword
+        }"
       />
       <div
-        [class]="showPassword ? 'icon rk-show active' : 'icon rk-show '"
+        class="icon"
+        [ngClass]="{
+          errors: isSubmitted && errorInPassword
+        }"
         (click)="onTogglePasswordVisibility()"
-      ></div>
+      >
+        {{ showPassword ? "X" : "O" }}
+      </div>
+    </div>
+    <div class="sub-login--container">
+      <a href="">Forgot password?</a>
+      <a href="">SignUp</a>
+    </div>
+    <div
+      class="error--container"
+      *ngIf="isSubmitted && (errorInUsername || errorInPassword)"
+    >
+      <h3>Wrong Login Credentials</h3>
+      <ul>
+        <li *ngIf="errorInUsername">Wrong Username</li>
+        <li *ngIf="errorInPassword">Wrong Password</li>
+      </ul>
     </div>
     <div class="button--container">
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        [disabled]="isSubmitted && (errorInUsername || errorInPassword)"
+      >
+        Submit
+      </button>
     </div>
   </form>
 </section>

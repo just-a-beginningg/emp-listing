@@ -8,7 +8,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SharedModule } from './shared/navbar/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, ],
+  declarations: [AppComponent ],
   imports: [BrowserModule, AppRoutingModule, RouterModule,SharedModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,7 @@
 <section class="login--container">
+  <div class="logo">
+    <img src="assets/user.svg" alt="" />
+  </div>
   <form [formGroup]="loginForm" class="sub--container" (ngSubmit)="onSubmit()">
     <label for="username">Username</label>
     <input
@@ -31,7 +34,8 @@
         }"
         (click)="onTogglePasswordVisibility()"
       >
-        {{ showPassword ? "X" : "O" }}
+        <img class="eye" *ngIf="showPassword" src="assets/eye-2.svg" alt="Show Password" />
+        <img class="eye" *ngIf="!showPassword" src="assets/eye-1.svg" alt="Hide Password" />
       </div>
     </div>
     <div class="sub-login--container">

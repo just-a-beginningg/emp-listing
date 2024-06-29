@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginModule),
   },
@@ -15,11 +15,16 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'details/:id',
+    loadChildren: () =>
+      import('./pages/details/details.module').then((m) => m.DetailsModule),
+  },
+  {
     path: 'list',
     loadChildren: () =>
       import('./pages/listing/listing.module').then((m) => m.ListingModule),
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
